@@ -73,3 +73,10 @@ It seems like not all binary operations are associative, but the `+` and `*` are
 
 ```scala
 ```
+
+## Video
+- [(0'18 hr) Discovering Types (from Strings) with Cats and Shapeless - Jonathan Merritt](https://www.youtube.com/watch?v=RecGZB3tclE)
+- [(0'49 hr) Cats — A Fresh Look at Functional Programming in Scala - Mike Stew O'Connor](https://www.youtube.com/watch?v=hIwdaP3-U6I)
+
+## Resources
+- [Herding Cats - Eugene Yokota](http://eed3si9n.com/herding-cats/index.html)
