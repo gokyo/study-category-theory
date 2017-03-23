@@ -5,7 +5,7 @@ version := "1.0.0"
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= {
-  val scalazVersion = "7.2.6"
+  val scalazVersion = "7.2.10"
   val scalazContribVersion = "0.2"
   Seq(
     "org.scalaz" %% "scalaz-core" % scalazVersion,
@@ -16,7 +16,7 @@ libraryDependencies ++= {
   // "org.typelevel" %% "scalaz-lift"               % "0.2",
 //  "org.typelevel" %% "scalaz-nscala-time" % scalazContribVersion,
 //  "org.typelevel" %% "scalaz-spire" % scalazContribVersion,
-  "org.typelevel" %% "scalaz-scalatest" % "1.0.0" % Test,
+  "org.typelevel" %% "scalaz-scalatest" % "1.1.2" % Test,
   "org.scalatest" %% "scalatest" % "2.2.6" % Test
   )
 }

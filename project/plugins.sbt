@@ -1,5 +1,5 @@
 // to enable the playframework
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.12")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.13")
 
 // to format scala source code
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")

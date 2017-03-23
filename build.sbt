@@ -17,13 +17,13 @@ val akkaVersion = "2.4.17"
 
 libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
 libraryDependencies += "io.github.scala-hamsters" %% "hamsters" % "1.1.1"
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.9"
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.10"
 libraryDependencies += "org.typelevel" %% "scalaz-outlaws" % "0.3"
 libraryDependencies += "com.typesafe.akka" %% "akka-stream" % akkaVersion
 
 libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test
 libraryDependencies += "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
-libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.1" % Test
+libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.2" % Test
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0-M1" % Test
 
 fork in Test := true
