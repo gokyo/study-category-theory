@@ -26,6 +26,8 @@ import scala.language.higherKinds
 import scalaz._
 import Scalaz._
 
+case class StringStats(length: Int, palindrome: Boolean)
+
 class AbstractCompositionTest extends FlatSpec with Matchers with ScalaFutures {
   implicit val pc: PatienceConfig = PatienceConfig(timeout = 30.seconds, interval = 300.millis)
 
@@ -38,4 +40,9 @@ class AbstractCompositionTest extends FlatSpec with Matchers with ScalaFutures {
     compose[Option, Long](Option(1), Option(2)) shouldBe Option(3)
     compose[Future, Long](Future(3), Future(4)).futureValue shouldBe 7
   }
+
+  def stringStats(calcLength: String => Int, isPalindrome: String => Boolean): String => StringStats = for {
+    length <- calcLength
+    palindrome <- isPalindrome
+  } yield StringStats(length, palindrome)
 }
