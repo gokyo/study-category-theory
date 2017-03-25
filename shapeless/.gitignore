@@ -13,7 +13,3 @@ writefile
 writefile.txt
 /frege/
 *.png
-!/img/class-hierarchy-of-scala.png
-!/img/cats-typeclass-hierarchy.png
-!/.gitignore
-!/img/REPLs.png
