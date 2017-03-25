@@ -204,3 +204,10 @@ ext install dart
 ```
 
 https://inoio.de/blog/2014/07/20/type-class-101-monoid/
+
+## Resources
+- [type-classes-example - Dennis Vriend](https://github.com/dnvriend/type-classes-example)
+- [play-validation-example](https://github.com/dnvriend/play-validation-example)
+- [scala-implicits-example](https://github.com/dnvriend/scala-implicits-example)
+- [play-anorm-example](https://github.com/dnvriend/play-anorm-example)
+- [study-sbt](https://github.com/dnvriend/study-sbt)
