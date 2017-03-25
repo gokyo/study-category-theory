@@ -86,3 +86,5 @@ libraryDependencies += Cinnamon.library.cinnamonSandbox
 // Add the Monitoring Agent for run and test
 cinnamon in run := true
 cinnamon in test := true
+
+lazy val shapeless = (project in file("shapeless"))
