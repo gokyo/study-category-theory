@@ -1,3 +1,2 @@
 GET        /api/hello         controllers.ApplicationController.hello
-GET        /api/fail          controllers.ApplicationController.fail
 GET        /api/answer        controllers.ApplicationController.theAnswerToLifeTheUniverseAndEverything

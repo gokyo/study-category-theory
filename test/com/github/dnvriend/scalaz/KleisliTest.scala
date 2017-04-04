@@ -66,4 +66,35 @@ class KleisliTest extends TestSpec {
     val _: Kleisli[Option, Int, Double] = kleisli(toStr _) >==> toInt _ >==> toDouble _
     kleisliComposition(10) shouldBe Option(20.0)
   }
+
+  // define an abstract computation using effects
+  def calc[F[_]: Monad](left: Kleisli[F, Int, Int], right: Kleisli[F, Int, Int]) = for {
+    x <- left
+    y <- right
+  } yield x + y
+
+  def maybeX(x: Int) = Option(x + 1)
+  def maybeY(x: Int) = Option(x + 100)
+
+  it should "compute using an abstract composition and two effects" in {
+    val comp: ReaderT[Option, Int, Int] = calc[Option](Kleisli(maybeX), Kleisli(maybeY))
+    comp.apply(1) shouldBe ""
+  }
+
+  //  def f2[F[_]: Monad](x: Int) = Kleisli[F, Int, Int](x * 100)
+  //  val k1: ReaderT[F, Int, Int] = Kleisli(f1)
+  //  val k2: ReaderT[Option, Int, Int] = Kleisli(f2)
+  //  val k3: ReaderT[Option, Int, Int] = k1 compose k2
+  //  val k4: ReaderT[Option, Int, Int] = k1 <=< k2 // alias for compose
+  //  val k5: ReaderT[Option, Int, Int] = k1 andThen k2
+  //  val k6: ReaderT[Option, Int, Int] = k1 >=> k2 // alias for andThen
+
+  //  it should "" in {
+  //    val result: Option[Int] = for {
+  //      nr <- Option(4)
+  //      result <- k1(nr)
+  //    } yield result
+  //
+  //    println(result)
+  //  }
 }

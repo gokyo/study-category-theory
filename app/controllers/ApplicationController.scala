@@ -18,21 +18,18 @@ package controllers
 
 import javax.inject.Inject
 
-import akka.pattern.CircuitBreaker
-import play.api.mvc._
 import play.api.libs.json._
+import play.api.mvc._
 
-import scala.concurrent.{ ExecutionContext, Future }
+import scala.concurrent.ExecutionContext
 
 final case class Number(theAnswerToLifeTheUniverseAndEverything: Int)
 object Number {
   implicit val format = Json.format[Number]
 }
 
-class ApplicationController @Inject() (cb: CircuitBreaker)(implicit ec: ExecutionContext) extends Controller {
+class ApplicationController @Inject() (implicit ec: ExecutionContext) extends Controller {
   def hello = Action(Ok("Hello World!"))
 
   def theAnswerToLifeTheUniverseAndEverything = Action(Ok(Json.toJson(Number(constants.Constants.TheAnswerToLifeTheUniverseAndEverything))))
-
-  def fail = Action.async(cb.withCircuitBreaker(Future.failed(new RuntimeException("This should fail")).map(_ => Ok("Hello World!"))))
 }
