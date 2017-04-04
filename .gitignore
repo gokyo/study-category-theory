@@ -17,3 +17,5 @@ writefile.txt
 !/img/cats-typeclass-hierarchy.png
 !/.gitignore
 !/img/REPLs.png
+/shapeless-repl/target/
+/shapeless-repl/project/target/
