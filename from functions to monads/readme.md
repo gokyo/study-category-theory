@@ -1,5 +1,21 @@
 #  From Functions to Monads
 
+## TL;DR
+Functional programming is a programming style that avoids mutable state. By eliminating mutable state, a function can
+be understood by a programmer by looking at the function in isolation and because all dependencies are visible, functions
+can be composed easily to create larger functions. But, at the end of the day any program must deal with mutable state
+and input and output like disk IO (read/write files), keyboard IO (read user input), display IO (GUI interaction),
+network IO (sending/receiving messages). This is where the 'Monad' comes into play. A Monad is a data type that encapsulates
+state changes while appearing stateless to the rest of the program by using a syntax called a for-comprehension like so:
+
+```scala
+for {
+  a <- Option(1)
+  b <- Option(a)
+  c <- Option(b)
+} yield c
+```
+
 ## Introduction
 "Monad" that's a word you hear quite often these days. There is a lot of unjustified Fear Uncertainty and Doubt whenever this word pops up. 
 This paper shows how to derive Monads from what you already know and give names to things you maybe never even thought about. This paper is 
