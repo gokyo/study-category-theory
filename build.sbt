@@ -4,9 +4,14 @@ organization := "com.github.dnvriend"
 
 version := "1.0.0-SNAPSHOT"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.11"
 
-scalaOrganization := "org.typelevel" // use Typelevel's Scala instead of Lightbend Scala
+// improves type constructor inference with support for partial unification,
+// fixing the notorious SI-2712.
+scalacOptions += "-Ypartial-unification"
+
+//scalacOptions += "-Ydelambdafy:method"
+scalacOptions += "-Ydelambdafy:inline"
 
 resolvers += "scalaz" at "http://dl.bintray.com/scalaz/releases"
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/stew/snapshots"
@@ -17,7 +22,7 @@ val akkaVersion = "2.4.17"
 
 libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
 libraryDependencies += "io.github.scala-hamsters" %% "hamsters" % "1.1.1"
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.10"
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.12"
 libraryDependencies += "org.typelevel" %% "scalaz-outlaws" % "0.3"
 libraryDependencies += "com.typesafe.akka" %% "akka-stream" % akkaVersion
 

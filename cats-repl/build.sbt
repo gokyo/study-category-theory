@@ -1,4 +1,11 @@
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
+
+// improves type constructor inference with support for partial unification,
+// fixing the notorious SI-2712.
+scalacOptions += "-Ypartial-unification"
+
+//scalacOptions += "-Ydelambdafy:method"
+scalacOptions += "-Ydelambdafy:inline"
 
 libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
 

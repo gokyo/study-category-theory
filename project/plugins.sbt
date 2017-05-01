@@ -1,17 +1,17 @@
 // to enable the playframework
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.13")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.14")
 
 // to format scala source code
 addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.6.0")
 
 // enable updating file headers eg. for copyright
-addSbtPlugin("de.heikoseeberger" % "sbt-header" % "1.5.1")
+addSbtPlugin("de.heikoseeberger" % "sbt-header" % "1.8.0")
 
 // https://github.com/typesafehub/sbt-conductr
-addSbtPlugin("com.lightbend.conductr" % "sbt-conductr" % "2.3.0")
+addSbtPlugin("com.lightbend.conductr" % "sbt-conductr" % "2.3.4")
 
 // see: https://developer.lightbend.com/docs/monitoring/latest/home.html
-addSbtPlugin("com.lightbend.cinnamon" % "sbt-cinnamon" % "2.2.4")
+addSbtPlugin("com.lightbend.cinnamon" % "sbt-cinnamon" % "2.4.0")
 
 // to create your '.credentials' file: https://developer.lightbend.com/docs/reactive-platform/2.0/setup/setup-sbt.html
 // for credentials: https://www.lightbend.com/product/lightbend-reactive-platform/credentials

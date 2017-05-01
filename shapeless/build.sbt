@@ -1,9 +1,16 @@
 name := "shapeless"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.11"
+
+// improves type constructor inference with support for partial unification,
+// fixing the notorious SI-2712.
+scalacOptions += "-Ypartial-unification"
+
+//scalacOptions += "-Ydelambdafy:method"
+scalacOptions += "-Ydelambdafy:inline"
 
 libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3"
 
 fork in Test := true
 parallelExecution := false

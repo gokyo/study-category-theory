@@ -4,13 +4,20 @@ organization := "com.github.dnvriend"
 
 version := "1.0.0"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
+
+// improves type constructor inference with support for partial unification,
+// fixing the notorious SI-2712.
+scalacOptions += "-Ypartial-unification"
+
+//scalacOptions += "-Ydelambdafy:method"
+scalacOptions += "-Ydelambdafy:inline"
 
 libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.10.0"
 libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
 libraryDependencies += "com.github.benhutchison" %% "mouse" % "0.6"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3"
 
 // testing configuration
 fork in Test := true

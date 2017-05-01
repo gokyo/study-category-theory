@@ -18,6 +18,7 @@ package com.github.dnvriend.typesystem
 
 import com.github.dnvriend.TestSpec
 
+// see: https://youtu.be/9h0XjuU0Ipk?t=14m59s
 class VarianceTest extends TestSpec {
 
   /**

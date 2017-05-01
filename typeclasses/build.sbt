@@ -4,11 +4,18 @@ organization := "com.github.dnvriend"
 
 version := "1.0.0"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
+
+// improves type constructor inference with support for partial unification,
+// fixing the notorious SI-2712.
+scalacOptions += "-Ypartial-unification"
+
+//scalacOptions += "-Ydelambdafy:method"
+scalacOptions += "-Ydelambdafy:inline"
 
 // functional and typelevel programming
 // https://github.com/scalaz/scalaz
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.8"
+libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.12"
 // https://github.com/mpilquist/simulacrum
 libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.10.0"
 // https://github.com/milessabin/shapeless
@@ -22,7 +29,7 @@ libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.1" % Test
 // https://www.playframework.com/documentation/2.5.x/ScalaTestingWithScalaTest#Mockito  
 //libraryDependencies += "org.mockito" % "mockito-core" % "2.2.21" % Test
 // https://github.com/scalatest/scalatest
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.3"
 
 // testing configuration
 fork in Test := true
