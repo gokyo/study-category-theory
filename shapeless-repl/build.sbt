@@ -1,4 +1,4 @@
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.4"
 
 scalaOrganization in ThisBuild := "org.typelevel"
  

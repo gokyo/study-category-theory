@@ -23,11 +23,11 @@ import cats.syntax.traverse._
 class TraverseTest extends TestSpec {
   it should "sequence a list" in {
     Traverse[List].sequence(List(Option(1), Option(2))) shouldBe Some(List(1, 2))
-    List(Option(1), Option(2)).sequenceU shouldBe Some(List(1, 2))
+    List(Option(1), Option(2)).sequence shouldBe Some(List(1, 2))
   }
 
   it should "traverse a list" in {
     def toOption[A](value: A): Option[A] = Option(value)
-    List(1, 2).traverseU(toOption) shouldBe Some(List(1, 2))
+    List(1, 2).traverse(toOption) shouldBe Some(List(1, 2))
   }
 }

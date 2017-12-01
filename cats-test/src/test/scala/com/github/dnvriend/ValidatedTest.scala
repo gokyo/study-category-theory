@@ -22,6 +22,6 @@ import mouse.string._
 class ValidatedTest extends TestSpec {
   it should "validate int" in {
     "1".parseIntValidated shouldBe Valid(1)
-    "foo".parseIntValidated shouldBe Invalid("")
+    "foo".parseIntValidated should matchPattern { case Invalid(_) => }
   }
 }

@@ -1,4 +1,4 @@
-scalaVersion := "2.12.2"
+scalaVersion := "2.12.4"
 
 // improves type constructor inference with support for partial unification,
 // fixing the notorious SI-2712.
@@ -7,7 +7,7 @@ scalacOptions += "-Ypartial-unification"
 //scalacOptions += "-Ydelambdafy:method"
 scalacOptions += "-Ydelambdafy:inline"
 
-libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
+libraryDependencies += "org.typelevel" %% "cats" % "1.0.0-RC1"
 
 initialize ~= { _ =>
   val ansi = System.getProperty("sbt.log.noformat", "false") != "true"

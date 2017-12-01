@@ -155,8 +155,8 @@ class DisjunctionTest extends TestSpec {
       \/-("Success 3").validationNel[String],
       \/-("Success 4").validationNel[String]
     ).foldLeft(List.empty[String].successNel[String]) {
-      case (acc, v) ⇒ (acc |@| v)(_ :+ _)
-    } shouldBe Failure(NonEmptyList("Failure 1", "Failure 2"))
+        case (acc, v) ⇒ (acc |@| v)(_ :+ _)
+      } shouldBe Failure(NonEmptyList("Failure 1", "Failure 2"))
   }
 
   it should "Converted Validations can be folded success case" in {
@@ -166,8 +166,8 @@ class DisjunctionTest extends TestSpec {
       \/-("Success 3").validationNel[String],
       \/-("Success 4").validationNel[String]
     ).foldLeft(List.empty[String].successNel[String]) {
-      case (acc, v) ⇒ (acc |@| v)(_ :+ _)
-    } shouldBe Success(List("Success 1", "Success 2", "Success 3", "Success 4"))
+        case (acc, v) ⇒ (acc |@| v)(_ :+ _)
+      } shouldBe Success(List("Success 1", "Success 2", "Success 3", "Success 4"))
   }
 
   it should "map a left side of the disjunction to a type" in {

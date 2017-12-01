@@ -1,95 +1,43 @@
 name := "study-category-theory"
 
-organization := "com.github.dnvriend"
+lazy val scalazTest = (project in file("scalaz-test"))
+  .settings(
+    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.16",
+    libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.2" % Test,
+    libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+  )
 
-version := "1.0.0-SNAPSHOT"
-
-scalaVersion := "2.11.11"
-
-// improves type constructor inference with support for partial unification,
-// fixing the notorious SI-2712.
-scalacOptions += "-Ypartial-unification"
-
-//scalacOptions += "-Ydelambdafy:method"
-scalacOptions += "-Ydelambdafy:inline"
-
-resolvers += "scalaz" at "http://dl.bintray.com/scalaz/releases"
-resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/stew/snapshots"
-resolvers += Resolver.sonatypeRepo("releases")
-resolvers += Resolver.sonatypeRepo("snapshots")
-
-val akkaVersion = "2.4.17"
-
-libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2"
-libraryDependencies += "io.github.scala-hamsters" %% "hamsters" % "1.1.1"
-libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.12"
-libraryDependencies += "org.typelevel" %% "scalaz-outlaws" % "0.3"
-libraryDependencies += "com.typesafe.akka" %% "akka-stream" % akkaVersion
-
-libraryDependencies += "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test
-libraryDependencies += "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test
-libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.2" % Test
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % Test
-
-fork in Test := true
-
-parallelExecution := false
-
-licenses +=("Apache-2.0", url("http://opensource.org/licenses/apache2.0.php"))
-
-// enable scala code formatting //
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
-
-// Scalariform settings
-SbtScalariform.autoImport.scalariformPreferences := SbtScalariform.autoImport.scalariformPreferences.value
-  .setPreference(AlignSingleLineCaseStatements, true)
-  .setPreference(AlignSingleLineCaseStatements.MaxArrowIndent, 100)
-  .setPreference(DoubleIndentClassDeclaration, true)
-
-// enable updating file headers //
-import de.heikoseeberger.sbtheader.license.Apache2_0
-
-headers := Map(
-  "scala" -> Apache2_0("2016", "Dennis Vriend"),
-  "conf" -> Apache2_0("2016", "Dennis Vriend", "#")
-)
-
-enablePlugins(AutomateHeaderPlugin, PlayScala)
-
-lazy val catsTest = project in file("cats-test")
-
-// =======================================
-// ==== Lightbend Orchestration (ConductR)
-// =======================================
-// read: https://github.com/typesafehub/conductr-lib#play25-conductr-bundle-lib
-// =======================================
-enablePlugins(PlayBundlePlugin)
-
-// Declares endpoints. The default is Map("web" -> Endpoint("http", 0, Set.empty)).
-// The endpoint key is used to form a set of environment variables for your components,
-// e.g. for the endpoint key "web" ConductR creates the environment variable WEB_BIND_PORT.
-BundleKeys.endpoints := Map(
-  "play" -> Endpoint(bindProtocol = "http", bindPort = 0, services = Set(URI("http://:9000/play"))),
-  "akka-remote" -> Endpoint("tcp")
-)
-
-normalizedName in Bundle := name.value // the human readable name for your bundle
-
-BundleKeys.system := name.value + "system" // represents the clustered ActorSystem
-
-BundleKeys.startCommand += "-Dhttp.address=$PLAY_BIND_IP -Dhttp.port=$PLAY_BIND_PORT"
-
-// ====================================
-// ==== Lightbend Monitoring (Cinnamon)
-// ====================================
-// Enable the Cinnamon Lightbend Monitoring sbt plugin
-enablePlugins (Cinnamon)
-
-libraryDependencies += Cinnamon.library.cinnamonSandbox
-
-// Add the Monitoring Agent for run and test
-cinnamon in run := true
-cinnamon in test := true
+// see: https://github.com/typelevel/cats/blob/master/CHANGES.md
+val catsVersion = "1.0.0-RC1"
+lazy val catsTest = (project in file("cats-test"))
+  .settings(
+    libraryDependencies += "org.typelevel" %% "cats-core" % catsVersion, // required
+    libraryDependencies += "org.typelevel" %% "cats-macros" % catsVersion, // required
+    libraryDependencies += "org.typelevel" %% "cats-kernel" % catsVersion, // required
+    libraryDependencies += "org.typelevel" %% "cats-laws" % catsVersion,
+    libraryDependencies += "org.typelevel" %% "cats-free" % catsVersion,
+    libraryDependencies += "org.typelevel" %% "cats-testkit" % catsVersion,
+    libraryDependencies += "org.typelevel" %% "alleycats-core" % catsVersion,
+    libraryDependencies += "org.typelevel" %% "mouse" % "0.12", // https://github.com/typelevel/mouse
+    libraryDependencies += "org.typelevel" %% "cats-mtl-core" % "0.0.2", // https://github.com/typelevel/cats-mtl
+    libraryDependencies += "org.typelevel" %% "cats-effect" % "0.5", // https://github.com/typelevel/cats-effect
+    libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.11.0",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+  )
 
 lazy val shapeless = (project in file("shapeless"))
+  .settings(
+    libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.11.0",
+    libraryDependencies += "com.chuusai" %% "shapeless" % "2.3.2",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+  )
+
+lazy val typeclasses = (project in file("typeclasses"))
+  .settings(
+    libraryDependencies += "com.github.mpilquist" %% "simulacrum" % "0.11.0",
+    libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.16",
+    libraryDependencies += "org.typelevel" %% "scalaz-scalatest" % "1.1.2" % Test,
+    libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % Test
+  )

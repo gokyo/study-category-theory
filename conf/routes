@@ -1,2 +1,0 @@
-GET        /api/hello         controllers.ApplicationController.hello
-GET        /api/answer        controllers.ApplicationController.theAnswerToLifeTheUniverseAndEverything

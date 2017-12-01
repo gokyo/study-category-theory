@@ -124,8 +124,8 @@ class ValidationTest extends TestSpec {
       Foo("z").successNel[String],
       "rtfm".failureNel
     ).foldLeft(Foo("x").successNel[String]) {
-      case (acc, v) => acc *> v
-    } shouldBe Failure(NonEmptyList("wtf", "rtfm"))
+        case (acc, v) => acc *> v
+      } shouldBe Failure(NonEmptyList("wtf", "rtfm"))
   }
 
   it should "fold a list of validation case classes success flow" in {
@@ -135,8 +135,8 @@ class ValidationTest extends TestSpec {
       Foo("y").successNel[String],
       Foo("z").successNel[String]
     ).foldLeft(Foo("x").successNel[String]) {
-      case (acc, v) => acc *> v
-    } shouldBe Success(Foo("z"))
+        case (acc, v) => acc *> v
+      } shouldBe Success(Foo("z"))
   }
 
   it should "validate tree of errors" in {
@@ -163,8 +163,8 @@ class ValidationTest extends TestSpec {
       "failure b".failureNel[String],
       "failure c".failureNel[String]
     ).foldLeft(List.empty[String].successNel[String]) {
-      case (acc, v) ⇒ (acc |@| v)(_ :+ _)
-    } shouldBe Failure(NonEmptyList("failure a", "failure b", "failure c"))
+        case (acc, v) ⇒ (acc |@| v)(_ :+ _)
+      } shouldBe Failure(NonEmptyList("failure a", "failure b", "failure c"))
   }
 
   it should "accumulate validations using traverseU which is map+sequence" in {
