@@ -7,6 +7,10 @@
 - Highly available, non-stop applications
 - Hot swapping, where code can be changed without stopping a system.
 
+Erlang support a pure functional and generic programming through 3rd party libraries
+- [datum](https://github.com/fogfish/datum)
+
+
 ## Documentation
 - [Erlang Documentation](http://www.erlang.org/docs)
 
@@ -29,3 +33,4 @@ Eshell V7.3  (abort with ^G)
 2> Fun1(2).
 3
 ```
+
