@@ -11,8 +11,11 @@ but maybe, get inspired and go look at Functional Programming, [Haskell](https:/
 [Shapeless](https://github.com/milessabin/shapeless) and overall create happy and therefor easy to reason about
 composable functions that, when applied, are called programs.
 
-# Category Theory Video
-- [(15'00 hr) Category Theory - Bartosz Milewski](https://www.youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)
+# Category Theory Videos
+- [Category Theory for beginners - Richard Southwell](https://www.youtube.com/playlist?list=PLCTMeyjMKRkoS699U0OJ3ymr3r01sI08l)
+- [Category Theory part 1 - Bartosz Milewski](https://www.youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)
+- [Category Theory part 2 - Bartosz Milewski](https://www.youtube.com/playlist?list=PLbgaMIhjbmElia1eCEZNvsVscFef9m0dm)
+- [Category Theory part 3 - Bartosz Milewski](https://www.youtube.com/playlist?list=PLbgaMIhjbmEn64WVX4B08B4h2rOtueWIL)
 - [(0'31 hr) A practical introduction to category theory - Daniela Sfregola](https://www.youtube.com/watch?v=DsACb1HCcEA)
 - [Introduction to Category Theory 1 - Steven Roman](https://www.youtube.com/watch?v=If6VUXZIB-4)
 - [Introduction to Category Theory 2 - Steven Roman](https://www.youtube.com/watch?v=leFJdbZy7Ys)
